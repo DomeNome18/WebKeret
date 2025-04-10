@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <app-menu [sidenav]="sidenav"></app-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-button (click)="onToggleSidenav(sidenav)" class="menu-toggle-button">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div>Áram bejelentés</div>
+      <nav>
+        <ul>
+          <li><a routerLink="/home">Főoldal</a></li>
+          <li><a routerLink="/login">Bejelentkezés</a></li>
+          <li><a routerLink="/register">Regisztrálás</a></li>
+          <li><a routerLink="/add-reading">Állás felvitele</a></li>
+          <li><a routerLink="/readings">Állások</a></li>
+        </ul>
+      </nav>
+    </mat-toolbar>
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>

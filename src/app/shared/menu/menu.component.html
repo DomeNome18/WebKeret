@@ -1,0 +1,33 @@
+<mat-nav-list>
+    <!-- Köcsög auto focus -->
+    <div class="hidden">
+        <a mat-list-item routerLink="/">
+            <h4 mat-line></h4>
+        </a>
+    </div>
+
+    <a mat-list-item routerLink="/home" routerLinkActive="active-list-item" (click)="closeMenu()">
+        <mat-icon matListItemIcon>home</mat-icon>
+        <span matListItemTitle>Főoldal</span>
+    </a>
+
+    <a mat-list-item routerLink="/login" routerLinkActive="active-list-item" (click)="closeMenu()">
+        <mat-icon matListItemIcon>login</mat-icon>
+        <span matListItemTitle>Bejelentkezés</span>
+    </a>
+
+    <a mat-list-item routerLink="/register" routerLinkActive="active-list-item" (click)="closeMenu()">
+        <mat-icon matListItemIcon>add</mat-icon>
+        <span matListItemTitle>Regisztrálás</span>
+    </a>
+
+    <a mat-list-item routerLink="/add-reading" routerLinkActive="active-list-item" (click)="closeMenu()">
+        <mat-icon matListItemIcon>create</mat-icon>
+        <span matListItemTitle>Állás felvitele</span>
+    </a>
+
+    <a mat-list-item routerLink="/readings" routerLinkActive="active-list-item" (click)="closeMenu()">
+        <mat-icon matListItemIcon>list</mat-icon>
+        <span matListItemTitle>Állások</span>
+    </a>
+</mat-nav-list>

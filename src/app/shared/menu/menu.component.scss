@@ -1,0 +1,26 @@
+.mat-list-item {
+    text-decoration: none;
+    color: inherit;
+}
+
+// display:none-nal nem működik :(
+.hidden{
+    height: 1px;
+    opacity: 0;
+}
+
+.active-list-item {
+    background-color: rgba(90, 80, 240, 0.30) !important;
+}
+
+.mat-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mat-list-item:focus::before {
+    opacity: 0 !important;
+}
+
+mat-nav-list {
+    min-width: 200px;
+}

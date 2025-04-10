@@ -1,0 +1,10 @@
+<div class="table-row">
+    <div class="row-cell address">{{ reading.address }}</div>
+    <div class="row-cell state">{{ reading.state | kWhAppender }}</div>
+    <div class="row-cell date">{{ reading.date | dateFormatter }}</div>
+    <div class="row-cell delete">
+      <button mat-icon-button color="warn" (click)="onDelete()" matTooltip="Törlés" matTooltipPosition="right" aria-label="Törlés">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+</div>

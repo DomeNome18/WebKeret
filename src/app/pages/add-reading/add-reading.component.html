@@ -1,0 +1,51 @@
+<div class="reading-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Állás bejelentése</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="readingForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Lakcím</mat-label>
+            <input matInput formControlName="address" required>
+            <mat-error *ngIf="readingForm.get('address')?.hasError('required')">
+              A lakcím kötelező mező
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Óra állása (kWh)</mat-label>
+            <input matInput type="number" formControlName="state" required>
+            <mat-error *ngIf="readingForm.get('state')?.hasError('required')">
+              Az óra állása kötelező mező
+            </mat-error>
+            <mat-error *ngIf="readingForm.get('state')?.hasError('min')">
+              Az óra állása csak pozitív lehet
+            </mat-error>
+            <mat-error *ngIf="readingForm.get('state')?.hasError('pattern')">
+              Az óra állásának egész számnak kell lennie
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Olvasás dátuma</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="readingForm.get('date')?.hasError('required')">
+              A dátum kötelező mező
+            </mat-error>
+          </mat-form-field>
+  
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!readingForm.valid">
+              Mentés
+            </button>
+            <button mat-button type="button" (click)="readingForm.reset()">
+              Visszaállítás
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

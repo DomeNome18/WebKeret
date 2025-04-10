@@ -1,0 +1,24 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 20px;
+}
+
+mat-card {
+  padding: 40px;
+  text-align: center;
+  max-width: 600px;
+}
+  
+.welcome-text {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #3f51b5;
+}
+  
+.subtext {
+  font-size: 1.2rem;
+  color: #666;
+}

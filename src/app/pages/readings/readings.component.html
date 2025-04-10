@@ -1,0 +1,28 @@
+<div class="power-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Áram állások</mat-card-title>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div class="table-header">
+          <div class="header-cell address">Lakcím</div>
+          <div class="header-cell state">Mérőóra állása</div>
+          <div class="header-cell date">Mérés dátuma</div>
+          <div class="header-cell delete">Törlés</div>
+        </div>
+  
+        <mat-divider></mat-divider>
+  
+        <div class="no-data" *ngIf="readings.length === 0">
+          Nincs még bejelentett mérőóra állás.
+        </div>
+  
+        <app-readings-item
+          *ngFor="let reading of readings"
+          [reading]="reading"
+          (delete)="onDeleteReading($event)">
+        </app-readings-item>
+      </mat-card-content>
+    </mat-card>
+  </div>
