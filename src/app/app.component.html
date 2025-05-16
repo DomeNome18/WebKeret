@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <app-menu [sidenav]="sidenav"></app-menu>
+    <app-menu [sidenav]="sidenav" [isLoggedIn]="isLoggedIn" (logoutEvent)="logout()"></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar>
@@ -11,10 +11,21 @@
       <nav>
         <ul>
           <li><a routerLink="/home">Főoldal</a></li>
-          <li><a routerLink="/login">Bejelentkezés</a></li>
-          <li><a routerLink="/register">Regisztrálás</a></li>
-          <li><a routerLink="/add-reading">Állás felvitele</a></li>
-          <li><a routerLink="/readings">Állások</a></li>
+
+          @if (isLoggedIn) {
+            <li><a routerLink="/add-reading">Állás felvitele</a></li>
+            <li><a routerLink="/readings">Állások</a></li>
+          }
+          
+          @if (!isLoggedIn) {
+            <li><a routerLink="/login">Bejelentkezés</a></li>
+            <li><a routerLink="/register">Regisztrálás</a></li>
+          }
+
+          @if (isLoggedIn) {
+            <li><a href="#" (click)="$event.preventDefault(); logout()">Kijelentkezés</a></li>
+          }
+          
         </ul>
       </nav>
     </mat-toolbar>

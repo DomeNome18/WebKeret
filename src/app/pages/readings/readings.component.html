@@ -1,28 +1,148 @@
+<div class="user-info" *ngIf="userName">
+  Üdvözöllek, <strong>{{ userName }}</strong>
+</div>
+
 <div class="power-container">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Áram állások</mat-card-title>
-      </mat-card-header>
-      
-      <mat-card-content>
-        <div class="table-header">
-          <div class="header-cell address">Lakcím</div>
-          <div class="header-cell state">Mérőóra állása</div>
-          <div class="header-cell date">Mérés dátuma</div>
-          <div class="header-cell delete">Törlés</div>
-        </div>
-  
-        <mat-divider></mat-divider>
-  
-        <div class="no-data" *ngIf="readings.length === 0">
-          Nincs még bejelentett mérőóra állás.
-        </div>
-  
-        <app-readings-item
-          *ngFor="let reading of readings"
-          [reading]="reading"
-          (delete)="onDeleteReading($event)">
-        </app-readings-item>
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Áram állások (összes)</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="table-header">
+        <div class="header-cell address">Lakcím</div>
+        <div class="header-cell state">Mérőóra állása</div>
+        <div class="header-cell date">Mérés dátuma</div>
+        <div class="header-cell delete">Törlés</div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="no-data" *ngIf="readings.length === 0">
+        Nincs még bejelentett mérőóra állás.
+      </div>
+
+      <app-readings-item
+        *ngFor="let reading of readings"
+        [reading]="reading"
+        (delete)="onDeleteReading($event)">
+      </app-readings-item>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="power-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Áram állások a saját lakcímnél</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="table-header">
+        <div class="header-cell address">Lakcím</div>
+        <div class="header-cell state">Mérőóra állása</div>
+        <div class="header-cell date">Mérés dátuma</div>
+        <div class="header-cell delete">Törlés</div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="no-data" *ngIf="readings.length === 0">
+        Nincs még bejelentett mérőóra állás.
+      </div>
+
+      <app-readings-item
+        *ngFor="let reading of matchingAddress"
+        [reading]="reading"
+        (delete)="onDeleteReading($event)">
+      </app-readings-item>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="power-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Magas fogyasztások (4000+)</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="table-header">
+        <div class="header-cell address">Lakcím</div>
+        <div class="header-cell state">Mérőóra állása</div>
+        <div class="header-cell date">Mérés dátuma</div>
+        <div class="header-cell delete">Törlés</div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="no-data" *ngIf="readings.length === 0">
+        Nincs még bejelentett mérőóra állás.
+      </div>
+
+      <app-readings-item
+        *ngFor="let reading of highUse"
+        [reading]="reading"
+        (delete)="onDeleteReading($event)">
+      </app-readings-item>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="power-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>2025-ös és utáni állások</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="table-header">
+        <div class="header-cell address">Lakcím</div>
+        <div class="header-cell state">Mérőóra állása</div>
+        <div class="header-cell date">Mérés dátuma</div>
+        <div class="header-cell delete">Törlés</div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="no-data" *ngIf="readings.length === 0">
+        Nincs még bejelentett mérőóra állás.
+      </div>
+
+      <app-readings-item
+        *ngFor="let reading of recent"
+        [reading]="reading"
+        (delete)="onDeleteReading($event)">
+      </app-readings-item>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="power-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>2020-2024 között, 1000-2500 kWh között</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="table-header">
+        <div class="header-cell address">Lakcím</div>
+        <div class="header-cell state">Mérőóra állása</div>
+        <div class="header-cell date">Mérés dátuma</div>
+        <div class="header-cell delete">Törlés</div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="no-data" *ngIf="readings.length === 0">
+        Nincs még bejelentett mérőóra állás.
+      </div>
+
+      <app-readings-item
+        *ngFor="let reading of special"
+        [reading]="reading"
+        (delete)="onDeleteReading($event)">
+      </app-readings-item>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -6,10 +6,10 @@
       <mat-card-content>
         <form [formGroup]="readingForm" (ngSubmit)="onSubmit()">
           <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Lakcím</mat-label>
+            <mat-label>Cím ahol mérve lett</mat-label>
             <input matInput formControlName="address" required>
             <mat-error *ngIf="readingForm.get('address')?.hasError('required')">
-              A lakcím kötelező mező
+              A cím kötelező mező
             </mat-error>
           </mat-form-field>
   

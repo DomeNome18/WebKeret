@@ -11,23 +11,32 @@
         <span matListItemTitle>Főoldal</span>
     </a>
 
-    <a mat-list-item routerLink="/login" routerLinkActive="active-list-item" (click)="closeMenu()">
-        <mat-icon matListItemIcon>login</mat-icon>
-        <span matListItemTitle>Bejelentkezés</span>
-    </a>
+    @if (!isLoggedIn) {
+        <a mat-list-item routerLink="/login" routerLinkActive="active-list-item" (click)="closeMenu()">
+            <mat-icon matListItemIcon>login</mat-icon>
+            <span matListItemTitle>Bejelentkezés</span>
+        </a>
 
-    <a mat-list-item routerLink="/register" routerLinkActive="active-list-item" (click)="closeMenu()">
-        <mat-icon matListItemIcon>add</mat-icon>
-        <span matListItemTitle>Regisztrálás</span>
-    </a>
+        <a mat-list-item routerLink="/register" routerLinkActive="active-list-item" (click)="closeMenu()">
+            <mat-icon matListItemIcon>add</mat-icon>
+            <span matListItemTitle>Regisztrálás</span>
+        </a>
+    }
 
-    <a mat-list-item routerLink="/add-reading" routerLinkActive="active-list-item" (click)="closeMenu()">
-        <mat-icon matListItemIcon>create</mat-icon>
-        <span matListItemTitle>Állás felvitele</span>
-    </a>
+    @if (isLoggedIn) {
+        <a mat-list-item routerLink="/add-reading" routerLinkActive="active-list-item" (click)="closeMenu()">
+            <mat-icon matListItemIcon>create</mat-icon>
+            <span matListItemTitle>Állás felvitele</span>
+        </a>
 
-    <a mat-list-item routerLink="/readings" routerLinkActive="active-list-item" (click)="closeMenu()">
-        <mat-icon matListItemIcon>list</mat-icon>
-        <span matListItemTitle>Állások</span>
-    </a>
+        <a mat-list-item routerLink="/readings" routerLinkActive="active-list-item" (click)="closeMenu()">
+            <mat-icon matListItemIcon>list</mat-icon>
+            <span matListItemTitle>Állások</span>
+        </a>
+
+        <a mat-list-item (click)="logout()">
+            <mat-icon matListItemIcon>logout</mat-icon>
+            <span matListItemTitle>Kijelentkezés</span>
+        </a>
+    }
 </mat-nav-list>

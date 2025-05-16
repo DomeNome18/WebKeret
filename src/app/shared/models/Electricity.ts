@@ -3,5 +3,4 @@ export interface Electricity {
     address: string;
     state: number;
     date: Date;
-    userId: string;
 }
