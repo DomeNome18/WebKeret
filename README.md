@@ -1,4 +1,4 @@
-# AramProjekt - Online áram lejelentés
+# AramProjekt - Online áram lejelentés - https://aramprojekt.web.app
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
 
